@@ -339,6 +339,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="network">네트워크 *</label>
+                        <select id="network" required>
+                            <option value="">선택해주세요</option>
+                            <option value="ERC20">ERC20(이더리움)</option>
+                            <option value="TRON">TRON(트론)</option>
+                            <option value="SOLANA">SOLANA(솔라나)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="wallet">페이백 받을 지갑주소 (USDT) *</label>
                         <input type="text" id="wallet" placeholder="USDT 지갑 주소를 입력하세요" required>
                     </div>
@@ -346,7 +356,7 @@
                     <button type="submit" class="submit-btn">제출하기</button>
                 </form>
                 <div id="successMessage" class="success-message">
-                    ✅ 정보가 성공적으로 제출되었습니다!
+                    ✅ 페이백 정보가 정상적으로 접수되었습니다.
                 </div>
             </div>
         </div>
@@ -354,7 +364,6 @@
 
     <!-- 하단 네비게이션 -->
     <div class="nav-menu">
-        <button class="nav-btn active" onclick="showPage('exchanges')">거래소</button>
         <button class="nav-btn" onclick="showPage('payback')">페이백 신청</button>
     </div>
 
@@ -400,6 +409,7 @@
                 exchange: document.getElementById('exchange').value,
                 uid: document.getElementById('uid').value,
                 email: document.getElementById('email').value,
+                network: document.getElementById('network').value,
                 wallet: document.getElementById('wallet').value
             };
 
@@ -409,11 +419,12 @@
                 `가입 거래소: ${formData.exchange}\n` +
                 `UID: ${formData.uid}\n` +
                 `이메일: ${formData.email}\n` +
+                `네트워크: ${formData.network}\n` +
                 `USDT 지갑주소: ${formData.wallet}`
             );
 
             // 여기에 실제 이메일 주소를 입력하세요
-            const mailtoLink = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
+            const mailtoLink = `mailto:kalman1268@gmail.com?subject=${subject}&body=${body}`;
             window.location.href = mailtoLink;
 
             // 성공 메시지 표시
@@ -422,10 +433,11 @@
             // 폼 초기화
             this.reset();
 
-            // 3초 후 메시지 숨김
+            // 2초 후 거래소 페이지로 이동
             setTimeout(() => {
                 document.getElementById('successMessage').classList.remove('show');
-            }, 3000);
+                showPage('exchanges');
+            }, 2000);
         });
     </script>
 </body>
