@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크립토 거래소 레퍼럴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 메인 배너 */
+        .main-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 80px 40px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .main-banner h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .main-banner p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        /* 거래소 섹션 */
+        .exchanges-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .exchanges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .exchange-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .exchange-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .exchange-card h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .exchange-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1em;
+        }
+
+        /* 페이백 폼 섹션 */
+        .payback-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #667eea;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group select option {
+            background: #1a1a2e;
+            color: #ffffff;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* 네비게이션 메뉴 */
+        .nav-menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 12, 41, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            padding: 12px 30px;
+            background: rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .nav-btn:hover {
+            background: rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
+        }
+
+        /* 성공 메시지 */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .main-banner h1 {
+                font-size: 2em;
+            }
+
+            .main-banner p {
+                font-size: 1em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .exchanges-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .payback-section {
+                padding: 30px 20px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            body {
+                padding-bottom: 180px;
+            }
+        }
+
+        body {
+            padding-bottom: 100px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 거래소 페이지 (메인 랜딩) -->
+        <div id="exchangesPage">
+            <div class="main-banner">
+                <h1>🚀 크립토 거래소 레퍼럴</h1>
+                <p>최고의 거래소에서 거래하고 페이백 받으세요</p>
+            </div>
+            <h2 class="section-title">주요 거래소 선택</h2>
+            <div class="exchanges-grid">
+                <div class="exchange-card" onclick="openExchange('binance')">
+                    <h3>Binance</h3>
+                    <p>세계 최대 암호화폐 거래소</p>
+                </div>
+
+                <div class="exchange-card" onclick="openExchange('bybit')">
+                    <h3>Bybit</h3>
+                    <p>선물거래 전문 플랫폼</p>
+                </div>
+
+                <div class="exchange-card" onclick="openExchange('bitget')">
+                    <h3>Bitget</h3>
+                    <p>카피트레이딩의 선두주자</p>
+                </div>
+
+                <div class="exchange-card" onclick="openExchange('okx')">
+                    <h3>OKX</h3>
+                    <p>종합 디지털 자산 거래소</p>
+                </div>
+
+                <div class="exchange-card" onclick="openExchange('huobi')">
+                    <h3>Huobi</h3>
+                    <p>글로벌 암호화폐 거래 플랫폼</p>
+                </div>
+
+                <div class="exchange-card" onclick="openExchange('mexc')">
+                    <h3>MEXC</h3>
+                    <p>다양한 알트코인 거래소</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 페이백 정보 입력 페이지 -->
+        <div id="paybackPage" class="hidden">
+            <div class="payback-section">
+                <h2 class="section-title">페이백 정보 입력</h2>
+                <form id="paybackForm">
+                    <div class="form-group">
+                        <label for="exchange">가입 거래소 *</label>
+                        <select id="exchange" required>
+                            <option value="">선택해주세요</option>
+                            <option value="binance">Binance</option>
+                            <option value="bybit">Bybit</option>
+                            <option value="bitget">Bitget</option>
+                            <option value="okx">OKX</option>
+                            <option value="huobi">Huobi</option>
+                            <option value="mexc">MEXC</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="uid">UID (사용자 ID) *</label>
+                        <input type="text" id="uid" placeholder="거래소 UID를 입력하세요" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">이메일 주소 *</label>
+                        <input type="email" id="email" placeholder="example@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wallet">페이백 받을 지갑주소 (USDT) *</label>
+                        <input type="text" id="wallet" placeholder="USDT 지갑 주소를 입력하세요" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">제출하기</button>
+                </form>
+                <div id="successMessage" class="success-message">
+                    ✅ 정보가 성공적으로 제출되었습니다!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 네비게이션 -->
+    <div class="nav-menu">
+        <button class="nav-btn active" onclick="showPage('exchanges')">거래소</button>
+        <button class="nav-btn" onclick="showPage('payback')">페이백 신청</button>
+    </div>
+
+    <script>
+        // 레퍼럴 링크 (임시 - 나중에 실제 링크로 교체하세요)
+        const referralLinks = {
+            binance: 'https://www.binance.com/en/register?ref=YOUR_REF_CODE',
+            bybit: 'https://www.bybit.com/register?ref=YOUR_REF_CODE',
+            bitget: 'https://www.bitget.com/expressly?channelCode=YOUR_REF_CODE',
+            okx: 'https://www.okx.com/join/YOUR_REF_CODE',
+            huobi: 'https://www.huobi.com/en-us/v/register/double-invite/?inviter_id=YOUR_REF_CODE',
+            mexc: 'https://www.mexc.com/register?inviteCode=YOUR_REF_CODE'
+        };
+
+        // 페이지 전환
+        function showPage(page) {
+            document.getElementById('exchangesPage').classList.add('hidden');
+            document.getElementById('paybackPage').classList.add('hidden');
+
+            if (page === 'exchanges') {
+                document.getElementById('exchangesPage').classList.remove('hidden');
+            } else if (page === 'payback') {
+                document.getElementById('paybackPage').classList.remove('hidden');
+            }
+
+            // 네비게이션 버튼 활성화 상태
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+
+        // 거래소 링크 열기
+        function openExchange(exchange) {
+            window.open(referralLinks[exchange], '_blank');
+        }
+
+        // 폼 제출 처리
+        document.getElementById('paybackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                exchange: document.getElementById('exchange').value,
+                uid: document.getElementById('uid').value,
+                email: document.getElementById('email').value,
+                wallet: document.getElementById('wallet').value
+            };
+
+            // 이메일로 전송 (mailto 사용)
+            const subject = encodeURIComponent('페이백 정보 제출');
+            const body = encodeURIComponent(
+                `가입 거래소: ${formData.exchange}\n` +
+                `UID: ${formData.uid}\n` +
+                `이메일: ${formData.email}\n` +
+                `USDT 지갑주소: ${formData.wallet}`
+            );
+
+            // 여기에 실제 이메일 주소를 입력하세요
+            const mailtoLink = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+
+            // 성공 메시지 표시
+            document.getElementById('successMessage').classList.add('show');
+            
+            // 폼 초기화
+            this.reset();
+
+            // 3초 후 메시지 숨김
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('show');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
