@@ -16,7 +16,6 @@
             background: #f8f9fa;
             color: #1a1a1a;
             min-height: 100vh;
-            padding-bottom: 100px;
         }
 
         /* 헤더 */
@@ -35,10 +34,175 @@
             padding: 0 20px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
             height: 50px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #374151;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: #4F46E5;
+        }
+
+        .nav-link.cta {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-link.cta:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* 슬라이딩 배너 */
+        .slider-section {
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        .slider-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            cursor: pointer;
+        }
+
+        .slider-slide.active {
+            opacity: 1;
+        }
+
+        .slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .slider-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .slider-content p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: white;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        /* 모바일 헤더 */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #374151;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .slider-container {
+                height: 250px;
+            }
+
+            .slider-content h2 {
+                font-size: 1.5em;
+            }
+
+            .slider-content p {
+                font-size: 1em;
+            }
         }
 
         .container {
@@ -431,13 +595,48 @@
     <!-- 헤더 -->
     <header class="header">
         <div class="header-content">
-            <img src="logo.svg" alt="CryptoMax Logo" class="logo">
+            <img src="logo.svg" alt="CryptoMax Logo" class="logo" onclick="goHome()">
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <nav class="nav-links" id="navLinks">
+                <a class="nav-link" onclick="showServiceInfo()">서비스 소개</a>
+                <a class="nav-link" onclick="showPage('payback')">페이백 신청</a>
+                <a class="nav-link" href="https://t.me/your_telegram" target="_blank">고객상담센터</a>
+            </nav>
         </div>
     </header>
 
     <div class="container">
         <!-- 거래소 페이지 (메인 랜딩) -->
         <div id="exchangesPage">
+            <!-- 슬라이딩 배너 -->
+            <div class="slider-section">
+                <div class="slider-container">
+                    <div class="slider-slide active" onclick="openBannerLink(0)">
+                        <div class="slider-content">
+                            <h2>🎉 최대 50% 페이백 이벤트</h2>
+                            <p>지금 가입하고 특별 혜택을 받으세요!</p>
+                        </div>
+                    </div>
+                    <div class="slider-slide" onclick="openBannerLink(1)">
+                        <div class="slider-content">
+                            <h2>💰 신규 가입 보너스</h2>
+                            <p>첫 거래 시 추가 페이백 제공</p>
+                        </div>
+                    </div>
+                    <div class="slider-slide" onclick="openBannerLink(2)">
+                        <div class="slider-content">
+                            <h2>🚀 VIP 회원 특별 혜택</h2>
+                            <p>거래량에 따른 추가 리워드</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <span class="slider-dot active" onclick="goToSlide(0)"></span>
+                    <span class="slider-dot" onclick="goToSlide(1)"></span>
+                    <span class="slider-dot" onclick="goToSlide(2)"></span>
+                </div>
+            </div>
+
             <div class="main-banner">
                 <h1>🚀 크립토 거래소 레퍼럴</h1>
                 <p>최고의 거래소에서 거래하고 페이백 받으세요</p>
@@ -624,7 +823,10 @@
                         <input type="text" id="wallet" placeholder="USDT 지갑 주소를 입력하세요" required>
                     </div>
 
-                    <button type="submit" class="submit-btn">제출하기</button>
+                    <div style="display: flex; gap: 15px;">
+                        <button type="button" class="submit-btn" style="background: #6b7280;" onclick="showPage('exchanges')">돌아가기</button>
+                        <button type="submit" class="submit-btn">제출하기</button>
+                    </div>
                 </form>
                 <div id="successMessage" class="success-message">
                     ✅ 페이백 정보가 정상적으로 접수되었습니다.
@@ -633,12 +835,63 @@
         </div>
     </div>
 
-    <!-- 하단 네비게이션 -->
-    <div class="nav-menu">
-        <button class="nav-btn" onclick="showPage('payback')">페이백 신청</button>
-    </div>
-
     <script>
+        // 배너 링크 (원하는 URL로 변경하세요)
+        const bannerLinks = [
+            'https://your-event-page.com/event1',
+            'https://your-event-page.com/event2',
+            'https://your-event-page.com/event3'
+        ];
+
+        // 슬라이더 기능
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        function openBannerLink(index) {
+            window.open(bannerLinks[index], '_blank');
+        }
+
+        // 자동 슬라이드 (5초마다)
+        setInterval(nextSlide, 5000);
+
+        // 모바일 메뉴 토글
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // 홈으로 이동
+        function goHome() {
+            showPage('exchanges');
+        }
+
+        // 서비스 소개 모달/페이지
+        function showServiceInfo() {
+            alert('서비스 소개 페이지입니다.\n\n최고의 거래소 페이백 서비스를 제공합니다.\n- 최대 50% 페이백\n- 신속한 정산\n- 24/7 고객지원');
+            // 원하시면 별도 페이지로 만들 수 있습니다
+        }
+
         // 레퍼럴 링크 (임시 - 나중에 실제 링크로 교체하세요)
         const referralLinks = {
             binance: 'https://www.binance.com/en/register?ref=YOUR_REF_CODE',
@@ -660,11 +913,8 @@
                 document.getElementById('paybackPage').classList.remove('hidden');
             }
 
-            // 네비게이션 버튼 활성화 상태
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            if (event && event.target) {
-                event.target.classList.add('active');
-            }
+            // 모바일 메뉴 닫기
+            document.getElementById('navLinks').classList.remove('active');
         }
 
         // 거래소 링크 열기
