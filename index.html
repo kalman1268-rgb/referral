@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>크립토 거래소 레퍼럴</title>
+    <title>크립토 거래소 레퍼럴 페이백</title>
     <style>
         * {
             margin: 0;
@@ -13,36 +13,61 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            color: #ffffff;
+            background: #f8f9fa;
+            color: #1a1a1a;
             min-height: 100vh;
+            padding-bottom: 100px;
+        }
+
+        /* 헤더 */
+        .header {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         /* 메인 배너 */
         .main-banner {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 80px 40px;
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            border-radius: 16px;
+            padding: 60px 40px;
             text-align: center;
-            margin-bottom: 60px;
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(79, 70, 229, 0.2);
         }
 
         .main-banner h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
+            font-size: 2.5em;
+            margin-bottom: 15px;
             font-weight: 700;
+            color: white;
         }
 
         .main-banner p {
-            font-size: 1.3em;
-            opacity: 0.9;
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.95);
+            font-weight: 400;
         }
 
         /* 거래소 섹션 */
@@ -52,111 +77,114 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+            font-weight: 700;
         }
 
         .exchanges-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
             margin-bottom: 40px;
         }
 
         .exchange-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
             padding: 40px 30px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
         .exchange-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(102, 126, 234, 0.5);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            transform: translateY(-8px);
+            border-color: #4F46E5;
+            box-shadow: 0 12px 32px rgba(79, 70, 229, 0.15);
         }
 
         .exchange-card h3 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            font-weight: 700;
         }
 
         .exchange-card p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.1em;
+            color: #6b7280;
+            font-size: 1em;
+            line-height: 1.5;
         }
 
         /* 페이백 폼 섹션 */
         .payback-section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
             padding: 50px;
             margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 24px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: #374151;
+            font-weight: 600;
         }
 
         .form-group input,
         .form-group select {
             width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            color: #ffffff;
+            padding: 14px 16px;
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            color: #1a1a1a;
             font-size: 1em;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            font-family: inherit;
         }
 
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #667eea;
-            background: rgba(255, 255, 255, 0.15);
+            border-color: #4F46E5;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
         }
 
         .form-group select option {
-            background: #1a1a2e;
-            color: #ffffff;
+            background: white;
+            color: #1a1a1a;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 16px;
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             color: white;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
         }
 
         .submit-btn:active {
@@ -169,46 +197,52 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(15, 12, 41, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            background: white;
+            border-top: 2px solid #e5e7eb;
+            padding: 16px;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             z-index: 1000;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
         }
 
         .nav-btn {
-            padding: 12px 30px;
-            background: rgba(102, 126, 234, 0.2);
-            border: 1px solid rgba(102, 126, 234, 0.5);
-            border-radius: 10px;
-            color: white;
+            padding: 12px 32px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            color: #374151;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             font-size: 1em;
+            font-weight: 600;
         }
 
         .nav-btn:hover {
-            background: rgba(102, 126, 234, 0.4);
-            transform: translateY(-2px);
+            background: #f9fafb;
+            border-color: #4F46E5;
+            color: #4F46E5;
         }
 
         .nav-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
             border-color: transparent;
+            color: white;
         }
 
         /* 성공 메시지 */
         .success-message {
             display: none;
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: center;
             margin-top: 20px;
             font-size: 1.1em;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
         }
 
         .success-message.show {
@@ -229,8 +263,12 @@
 
         /* 반응형 */
         @media (max-width: 768px) {
+            .main-banner {
+                padding: 40px 24px;
+            }
+
             .main-banner h1 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
 
             .main-banner p {
@@ -238,7 +276,7 @@
             }
 
             .section-title {
-                font-size: 1.8em;
+                font-size: 1.6em;
             }
 
             .exchanges-grid {
@@ -255,12 +293,8 @@
             }
 
             body {
-                padding-bottom: 180px;
+                padding-bottom: 160px;
             }
-        }
-
-        body {
-            padding-bottom: 100px;
         }
 
         .hidden {
@@ -269,6 +303,13 @@
     </style>
 </head>
 <body>
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="header-content">
+            <img src="logo.svg" alt="CryptoMax Logo" class="logo">
+        </div>
+    </header>
+
     <div class="container">
         <!-- 거래소 페이지 (메인 랜딩) -->
         <div id="exchangesPage">
@@ -342,9 +383,9 @@
                         <label for="network">네트워크 *</label>
                         <select id="network" required>
                             <option value="">선택해주세요</option>
-                            <option value="ERC20">ERC20(이더리움)</option>
-                            <option value="TRON">TRON(트론)</option>
-                            <option value="SOLANA">SOLANA(솔라나)</option>
+                            <option value="ERC20">ERC20</option>
+                            <option value="TRON">TRON</option>
+                            <option value="SOLANA">SOLANA</option>
                         </select>
                     </div>
 
@@ -424,7 +465,172 @@
             );
 
             // 여기에 실제 이메일 주소를 입력하세요
-            const mailtoLink = `mailto:kalman1268@gmail.com?subject=${subject}&body=${body}`;
+            const mailtoLink = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+
+            // 성공 메시지 표시
+            document.getElementById('successMessage').classList.add('show');
+            
+            // 폼 초기화
+            this.reset();
+
+            // 2초 후 거래소 페이지로 이동
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('show');
+                showPage('exchanges');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
+            <div class="exchanges-grid">
+                <div class="exchange-card" onclick="openExchange('binance')">
+                    <h3>Binance</h3>
+                    <p>세계 최대 암호화폐 거래소</p>
+                </div>
+
+                <div class="exchange-card" onclick="openExchange('bybit')">
+                    <h3>Bybit</h3>
+                    <p>선물거래 전문 플랫폼</p>
+                </div>
+
+                <div class="exchange-card" onclick="openExchange('bitget')">
+                    <h3>Bitget</h3>
+                    <p>카피트레이딩의 선두주자</p>
+                </div>
+
+                <div class="exchange-card" onclick="openExchange('okx')">
+                    <h3>OKX</h3>
+                    <p>종합 디지털 자산 거래소</p>
+                </div>
+
+                <div class="exchange-card" onclick="openExchange('huobi')">
+                    <h3>Huobi</h3>
+                    <p>글로벌 암호화폐 거래 플랫폼</p>
+                </div>
+
+                <div class="exchange-card" onclick="openExchange('mexc')">
+                    <h3>MEXC</h3>
+                    <p>다양한 알트코인 거래소</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 페이백 정보 입력 페이지 -->
+        <div id="paybackPage" class="hidden">
+            <div class="payback-section">
+                <h2 class="section-title">페이백 정보 입력</h2>
+                <form id="paybackForm">
+                    <div class="form-group">
+                        <label for="exchange">가입 거래소 *</label>
+                        <select id="exchange" required>
+                            <option value="">선택해주세요</option>
+                            <option value="binance">Binance</option>
+                            <option value="bybit">Bybit</option>
+                            <option value="bitget">Bitget</option>
+                            <option value="okx">OKX</option>
+                            <option value="huobi">Huobi</option>
+                            <option value="mexc">MEXC</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="uid">UID (사용자 ID) *</label>
+                        <input type="text" id="uid" placeholder="거래소 UID를 입력하세요" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">이메일 주소 *</label>
+                        <input type="email" id="email" placeholder="example@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="network">네트워크 *</label>
+                        <select id="network" required>
+                            <option value="">선택해주세요</option>
+                            <option value="ERC20">ERC20</option>
+                            <option value="TRON">TRON</option>
+                            <option value="SOLANA">SOLANA</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wallet">페이백 받을 지갑주소 (USDT) *</label>
+                        <input type="text" id="wallet" placeholder="USDT 지갑 주소를 입력하세요" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">제출하기</button>
+                </form>
+                <div id="successMessage" class="success-message">
+                    ✅ 페이백 정보가 정상적으로 접수되었습니다.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 네비게이션 -->
+    <div class="nav-menu">
+        <button class="nav-btn" onclick="showPage('payback')">페이백 신청</button>
+    </div>
+
+    <script>
+        // 레퍼럴 링크 (임시 - 나중에 실제 링크로 교체하세요)
+        const referralLinks = {
+            binance: 'https://www.binance.com/en/register?ref=YOUR_REF_CODE',
+            bybit: 'https://www.bybit.com/register?ref=YOUR_REF_CODE',
+            bitget: 'https://www.bitget.com/expressly?channelCode=YOUR_REF_CODE',
+            okx: 'https://www.okx.com/join/YOUR_REF_CODE',
+            huobi: 'https://www.huobi.com/en-us/v/register/double-invite/?inviter_id=YOUR_REF_CODE',
+            mexc: 'https://www.mexc.com/register?inviteCode=YOUR_REF_CODE'
+        };
+
+        // 페이지 전환
+        function showPage(page) {
+            document.getElementById('exchangesPage').classList.add('hidden');
+            document.getElementById('paybackPage').classList.add('hidden');
+
+            if (page === 'exchanges') {
+                document.getElementById('exchangesPage').classList.remove('hidden');
+            } else if (page === 'payback') {
+                document.getElementById('paybackPage').classList.remove('hidden');
+            }
+
+            // 네비게이션 버튼 활성화 상태
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+
+        // 거래소 링크 열기
+        function openExchange(exchange) {
+            window.open(referralLinks[exchange], '_blank');
+        }
+
+        // 폼 제출 처리
+        document.getElementById('paybackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                exchange: document.getElementById('exchange').value,
+                uid: document.getElementById('uid').value,
+                email: document.getElementById('email').value,
+                network: document.getElementById('network').value,
+                wallet: document.getElementById('wallet').value
+            };
+
+            // 이메일로 전송 (mailto 사용)
+            const subject = encodeURIComponent('페이백 정보 제출');
+            const body = encodeURIComponent(
+                `가입 거래소: ${formData.exchange}\n` +
+                `UID: ${formData.uid}\n` +
+                `이메일: ${formData.email}\n` +
+                `네트워크: ${formData.network}\n` +
+                `USDT 지갑주소: ${formData.wallet}`
+            );
+
+            // 여기에 실제 이메일 주소를 입력하세요
+            const mailtoLink = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
             window.location.href = mailtoLink;
 
             // 성공 메시지 표시
