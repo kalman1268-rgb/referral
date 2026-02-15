@@ -18,7 +18,6 @@
             min-height: 100vh;
         }
 
-        /* 헤더 */
         .header {
             background: white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -74,7 +73,6 @@
             color: white;
         }
 
-        /* 언어 선택 드롭다운 */
         .language-selector {
             position: relative;
         }
@@ -130,7 +128,6 @@
             font-weight: 600;
         }
 
-        /* 슬라이딩 배너 */
         .slider-section {
             margin-bottom: 50px;
             position: relative;
@@ -156,12 +153,6 @@
 
         .slider-slide.active {
             opacity: 1;
-        }
-
-        .slider-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .slider-content {
@@ -216,7 +207,6 @@
             border-radius: 6px;
         }
 
-        /* 모바일 헤더 */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -267,7 +257,6 @@
             padding: 20px;
         }
 
-        /* 거래소 그리드 */
         .exchange-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -337,7 +326,6 @@
             color: #4F46E5;
         }
 
-        /* 비교 섹션 */
         .comparison-section {
             background: white;
             border-radius: 16px;
@@ -409,7 +397,6 @@
             font-weight: 700;
         }
 
-        /* 폼 섹션 */
         .form-section {
             background: white;
             border-radius: 16px;
@@ -462,7 +449,6 @@
             transform: translateY(-2px);
         }
 
-        /* 푸터 */
         .footer {
             background: #1a1a1a;
             color: white;
@@ -496,7 +482,6 @@
             color: #4F46E5;
         }
 
-        /* 성공 메시지 */
         .success-message {
             position: fixed;
             top: 20px;
@@ -551,7 +536,6 @@
     </style>
 </head>
 <body>
-    <!-- 헤더 -->
     <header class="header">
         <div class="header-content">
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -593,7 +577,6 @@
     </header>
 
     <div class="container">
-        <!-- 슬라이딩 배너 -->
         <div class="slider-section">
             <div class="slider-container">
                 <div class="slider-slide active" onclick="openBannerLink(0)">
@@ -611,7 +594,7 @@
                 <div class="slider-slide" onclick="openBannerLink(2)">
                     <div class="slider-content">
                         <h2 data-en="Multiple Exchanges Supported" data-ko="다중 거래소 지원">Multiple Exchanges Supported</h2>
-                        <p data-en="Bybit, Bitget, OKX and more" data-ko="Bybit, Bitget, OKX 등">Bybit, Bitget, OKX and more</p>
+                        <p data-en="Bybit, Bitget, OKX" data-ko="Bybit, Bitget, OKX">Bybit, Bitget, OKX</p>
                     </div>
                 </div>
             </div>
@@ -622,18 +605,14 @@
             </div>
         </div>
 
-        <!-- 거래소 페이지 -->
         <div id="exchangesPage">
             <h1 class="section-title" data-en="Choose Your Exchange" data-ko="거래소를 선택하세요">Choose Your Exchange</h1>
             
             <div class="exchange-grid" id="exchangeGrid">
-                <!-- 거래소 카드들이 여기에 동적으로 생성됩니다 -->
             </div>
         </div>
 
-        <!-- 페이백 신청 페이지 -->
         <div id="paybackPage" class="hidden">
-            <!-- 비교 섹션 -->
             <div class="comparison-section">
                 <h2 class="section-title" data-en="Exchange Comparison" data-ko="거래소 비교">Exchange Comparison</h2>
                 <table class="comparison-table">
@@ -648,12 +627,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- 비교 데이터가 여기에 동적으로 생성됩니다 -->
                     </tbody>
                 </table>
             </div>
 
-            <!-- 신청 폼 -->
             <div class="form-section">
                 <h2 class="section-title" data-en="Register for Payback" data-ko="페이백 신청하기">Register for Payback</h2>
                 <form id="paybackForm">
@@ -661,7 +638,6 @@
                         <label class="form-label" data-en="Select Exchange" data-ko="거래소 선택">Select Exchange</label>
                         <select id="exchange" class="form-select" required>
                             <option value="" data-en="Choose an exchange" data-ko="거래소를 선택해주세요">Choose an exchange</option>
-                            <!-- 거래소 옵션들이 여기에 동적으로 생성됩니다 -->
                         </select>
                     </div>
 
@@ -705,7 +681,6 @@
         </div>
     </div>
 
-    <!-- 푸터 -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -726,44 +701,33 @@
         </div>
     </footer>
 
-    <!-- 성공 메시지 -->
     <div id="successMessage" class="success-message">
         <span data-en="✅ Application submitted successfully!" data-ko="✅ 신청이 성공적으로 제출되었습니다!">✅ Application submitted successfully!</span>
     </div>
 
     <script>
-        // ========================================
-        // ⚙️ 설정 (Configuration)
-        // ========================================
-        
         const CONFIG = {
             emailRecipient: 'info@cryptopayback.com',
             telegramLink: 'https://t.me/your_telegram_channel',
             sliderInterval: 5000
         };
 
-        // 배너 링크 (각 슬라이드를 클릭했을 때 이동할 URL)
         const bannerLinks = [
             'https://cryptopayback.com',
             'https://cryptopayback.com/settlement',
             'https://cryptopayback.com/exchanges'
         ];
 
-        // 거래소별 레퍼럴 링크 (실제 레퍼럴 링크로 변경해주세요)
         const referralLinks = {
             bybit: 'https://partner.bybit.com/b/YOUR_REFERRAL_CODE',
             bitget: 'https://partner.bitget.com/bg/YOUR_REFERRAL_CODE',
             okx: 'https://www.okx.com/join/YOUR_REFERRAL_CODE'
         };
 
-        // ========================================
-        // 📊 거래소 데이터 (Exchange Data)
-        // ========================================
-
         const exchangeData = {
             bybit: {
                 name: 'Bybit',
-                logo: 'https://cdn.worldvectorlogo.com/logos/bybit.svg',
+                logo: 'logos/bybit-logo.svg',
                 paybackRate: '50%',
                 discount: '20%',
                 makerFee: '0.01%',
@@ -776,7 +740,7 @@
             },
             bitget: {
                 name: 'Bitget',
-                logo: 'https://www.bitget.com/favicon.ico',
+                logo: 'logos/bitget-logo.svg',
                 paybackRate: '45%',
                 discount: '20%',
                 makerFee: '0.02%',
@@ -789,7 +753,7 @@
             },
             okx: {
                 name: 'OKX',
-                logo: 'https://static.okx.com/cdn/assets/imgs/MjAyMQ/OKX_LOGO.png',
+                logo: 'logos/okx-logo.svg',
                 paybackRate: '40%',
                 discount: '20%',
                 makerFee: '0.02%',
@@ -802,11 +766,6 @@
             }
         };
 
-        // ========================================
-        // 🎨 동적 콘텐츠 생성 (Dynamic Content Generation)
-        // ========================================
-
-        // 거래소 카드 동적 생성
         function initializeExchangeCards() {
             const grid = document.getElementById('exchangeGrid');
             if (!grid) return;
@@ -841,7 +800,6 @@
             });
         }
 
-        // 비교 테이블 동적 생성
         function initializeComparisonTable() {
             const tbody = document.querySelector('.comparison-table tbody');
             if (!tbody) return;
@@ -868,17 +826,14 @@
             });
         }
 
-        // 폼의 거래소 옵션 동적 생성
         function initializeFormOptions() {
             const select = document.getElementById('exchange');
             if (!select) return;
 
-            // 첫 번째 옵션(선택해주세요)만 유지하고 나머지 제거
             while (select.options.length > 1) {
                 select.remove(1);
             }
 
-            // 거래소 옵션 추가
             Object.keys(exchangeData).forEach(key => {
                 const option = document.createElement('option');
                 option.value = key;
@@ -887,7 +842,6 @@
             });
         }
 
-        // 텔레그램 링크 설정
         function initializeTelegramLink() {
             const telegramLink = document.querySelector('a[href*="t.me"]');
             if (telegramLink) {
@@ -895,14 +849,12 @@
             }
         }
 
-        // 페이지 로드 시 초기화
         document.addEventListener('DOMContentLoaded', function() {
             initializeExchangeCards();
             initializeComparisonTable();
             initializeFormOptions();
             initializeTelegramLink();
 
-            // 저장된 언어 적용
             const savedLanguage = localStorage.getItem('preferredLanguage');
             if (savedLanguage && savedLanguage !== 'en') {
                 const koreanOption = document.querySelector('.language-option:nth-child(2)');
@@ -916,37 +868,24 @@
             }
         });
 
-        // ========================================
-        // 🌐 언어 관련 기능 (Language Functions)
-        // ========================================
-
-        // 현재 언어
         let currentLanguage = 'en';
 
-        // 언어 변경 함수
         function changeLanguage(lang) {
             currentLanguage = lang;
-            
-            // HTML lang 속성 변경
             document.documentElement.lang = lang;
             
-            // 모든 data-en, data-ko 속성이 있는 요소 찾기
             document.querySelectorAll('[data-en][data-ko]').forEach(element => {
                 if (element.hasAttribute('data-placeholder-en') && element.hasAttribute('data-placeholder-ko')) {
-                    // placeholder 속성 변경
                     element.placeholder = element.getAttribute(`data-placeholder-${lang}`);
                 } else {
-                    // 텍스트 콘텐츠 변경
                     element.textContent = element.getAttribute(`data-${lang}`);
                 }
             });
             
-            // select option 변경
             document.querySelectorAll('option[data-en][data-ko]').forEach(option => {
                 option.textContent = option.getAttribute(`data-${lang}`);
             });
             
-            // 언어 선택 드롭다운 업데이트
             document.querySelectorAll('.language-option').forEach(option => {
                 option.classList.remove('selected');
             });
@@ -954,19 +893,14 @@
                 event.target.classList.add('selected');
             }
             
-            // 드롭다운 닫기
             document.getElementById('languageDropdown').classList.remove('active');
-            
-            // localStorage에 언어 저장
             localStorage.setItem('preferredLanguage', lang);
         }
 
-        // 언어 드롭다운 토글
         function toggleLanguageDropdown() {
             document.getElementById('languageDropdown').classList.toggle('active');
         }
 
-        // 페이지 외부 클릭 시 드롭다운 닫기
         document.addEventListener('click', function(event) {
             const languageSelector = document.querySelector('.language-selector');
             const dropdown = document.getElementById('languageDropdown');
@@ -975,10 +909,6 @@
                 dropdown.classList.remove('active');
             }
         });
-
-        // ========================================
-        // 🎠 슬라이더 기능 (Slider Functions)
-        // ========================================
 
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slider-slide');
@@ -1008,25 +938,17 @@
             window.open(bannerLinks[index], '_blank');
         }
 
-        // 자동 슬라이드
         setInterval(nextSlide, CONFIG.sliderInterval);
 
-        // ========================================
-        // 🧭 네비게이션 기능 (Navigation Functions)
-        // ========================================
-
-        // 모바일 메뉴 토글
         function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
 
-        // 홈으로 이동
         function goHome() {
             showPage('exchanges');
         }
 
-        // 서비스 소개
         function showServiceInfo() {
             const messages = {
                 en: 'About Our Service\n\nWe provide the best exchange payback service.\n- Up to 50% payback\n- Fast settlement\n- 24/7 customer support',
@@ -1035,7 +957,6 @@
             alert(messages[currentLanguage]);
         }
 
-        // 페이지 전환
         function showPage(page) {
             document.getElementById('exchangesPage').classList.add('hidden');
             document.getElementById('paybackPage').classList.add('hidden');
@@ -1046,18 +967,12 @@
                 document.getElementById('paybackPage').classList.remove('hidden');
             }
 
-            // 모바일 메뉴 닫기
             document.getElementById('navLinks').classList.remove('active');
         }
 
-        // 거래소 링크 열기
         function openExchange(exchange) {
             window.open(referralLinks[exchange], '_blank');
         }
-
-        // ========================================
-        // 📝 폼 제출 처리 (Form Submission)
-        // ========================================
 
         document.getElementById('paybackForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1070,7 +985,6 @@
                 wallet: document.getElementById('wallet').value
             };
 
-            // 이메일로 전송
             const subject = encodeURIComponent('Payback Information Submission');
             const body = encodeURIComponent(
                 `Registered Exchange: ${formData.exchange}\n` +
@@ -1083,13 +997,9 @@
             const mailtoLink = `mailto:${CONFIG.emailRecipient}?subject=${subject}&body=${body}`;
             window.location.href = mailtoLink;
 
-            // 성공 메시지 표시
             document.getElementById('successMessage').classList.add('show');
-            
-            // 폼 초기화
             this.reset();
 
-            // 2초 후 거래소 페이지로 이동
             setTimeout(() => {
                 document.getElementById('successMessage').classList.remove('show');
                 showPage('exchanges');
