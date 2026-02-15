@@ -264,337 +264,289 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
-        /* 메인 배너 */
-        .main-banner {
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-            border-radius: 16px;
-            padding: 60px 40px;
-            text-align: center;
-            margin-bottom: 50px;
-            box-shadow: 0 4px 20px rgba(79, 70, 229, 0.2);
-        }
-
-        .main-banner h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            font-weight: 700;
-            color: white;
-        }
-
-        .main-banner p {
-            font-size: 1.2em;
-            color: rgba(255,255,255,0.95);
-            font-weight: 400;
-        }
-
-        /* 거래소 섹션 */
-        .exchanges-section {
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 40px;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .exchanges-grid {
+        /* 거래소 그리드 */
+        .exchange-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
         }
 
         .exchange-card {
             background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 30px 24px;
-            text-align: center;
-            cursor: pointer;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .exchange-card:hover {
             transform: translateY(-8px);
-            border-color: #4F46E5;
-            box-shadow: 0 12px 32px rgba(79, 70, 229, 0.15);
+            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.2);
         }
 
         .exchange-logo {
             width: 80px;
             height: 80px;
-            margin: 0 auto 20px;
+            margin-bottom: 20px;
             object-fit: contain;
         }
 
-        .exchange-card h3 {
+        .exchange-name {
             font-size: 1.5em;
-            margin-bottom: 8px;
-            color: #1a1a1a;
             font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
         }
 
-        .exchange-card p {
-            color: #6b7280;
+        .exchange-description {
             font-size: 0.95em;
+            color: #6b7280;
+            margin-bottom: 20px;
             line-height: 1.5;
         }
 
-        /* 페이백 폼 섹션 */
-        .payback-section {
-            background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 50px;
-            margin-bottom: 40px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 1em;
-            color: #374151;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select {
+        .exchange-stats {
             width: 100%;
-            padding: 14px 16px;
-            background: #f9fafb;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            color: #1a1a1a;
-            font-size: 1em;
-            transition: all 0.2s ease;
-            font-family: inherit;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 2px solid #f3f4f6;
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #4F46E5;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.9em;
         }
 
-        .form-group select option {
-            background: white;
-            color: #1a1a1a;
+        .stat-label {
+            color: #6b7280;
         }
 
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-            border: none;
-            border-radius: 8px;
-            color: white;
-            font-size: 1.1em;
+        .stat-value {
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+            color: #4F46E5;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        /* 비교 테이블 섹션 */
+        /* 비교 섹션 */
         .comparison-section {
-            margin-bottom: 80px;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 50px;
         }
 
-        .comparison-table-wrapper {
-            background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        .section-title {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #1a1a1a;
         }
 
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
         }
 
         .comparison-table thead {
             background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-        }
-
-        .comparison-table thead th {
-            padding: 18px 16px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.95em;
             color: white;
-            border-bottom: 2px solid rgba(255,255,255,0.1);
         }
 
-        .comparison-table thead th:first-child {
-            padding-left: 24px;
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
         }
 
-        .comparison-table tbody tr {
-            border-bottom: 1px solid #e5e7eb;
-            transition: background-color 0.2s ease;
+        .comparison-table th {
+            font-weight: 600;
+            white-space: nowrap;
         }
 
         .comparison-table tbody tr:hover {
-            background-color: #f9fafb;
-        }
-
-        .comparison-table tbody tr:last-child {
-            border-bottom: none;
-        }
-
-        .comparison-table tbody td {
-            padding: 20px 16px;
-            font-size: 0.95em;
-            color: #374151;
-        }
-
-        .comparison-table tbody td:first-child {
-            padding-left: 24px;
+            background: #f9fafb;
         }
 
         .exchange-info {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            justify-content: center;
         }
 
         .exchange-info-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
+            width: 30px;
+            height: 30px;
             object-fit: contain;
         }
 
         .exchange-info-name {
             font-weight: 600;
-            color: #1a1a1a;
-            font-size: 1em;
         }
 
         .rate-value {
-            font-weight: 600;
-            color: #4F46E5;
+            color: #10B981;
+            font-weight: 700;
         }
 
         .average-value {
-            font-weight: 600;
-            color: #10b981;
+            color: #4F46E5;
+            font-weight: 700;
         }
 
-        /* 모바일 테이블 반응형 */
-        @media (max-width: 768px) {
-            .comparison-table-wrapper {
-                overflow-x: auto;
-            }
+        /* 폼 섹션 */
+        .form-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
 
-            .comparison-table {
-                min-width: 700px;
-            }
+        .form-group {
+            margin-bottom: 25px;
+        }
 
-            .comparison-table thead th,
-            .comparison-table tbody td {
-                padding: 12px 10px;
-                font-size: 0.85em;
-            }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
 
-            .comparison-table thead th:first-child,
-            .comparison-table tbody td:first-child {
-                padding-left: 16px;
-            }
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
 
-            .exchange-info-logo {
-                width: 32px;
-                height: 32px;
-            }
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #4F46E5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
 
-            .exchange-info-name {
-                font-size: 0.9em;
-            }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* 푸터 */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #4F46E5;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #4F46E5;
         }
 
         /* 성공 메시지 */
         .success-message {
-            display: none;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #10B981;
             color: white;
-            padding: 20px;
+            padding: 20px 30px;
             border-radius: 8px;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1.1em;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
         }
 
         .success-message.show {
             display: block;
-            animation: slideIn 0.5s ease;
+            animation: slideIn 0.3s ease;
         }
 
         @keyframes slideIn {
             from {
+                transform: translateX(400px);
                 opacity: 0;
-                transform: translateY(-20px);
             }
             to {
+                transform: translateX(0);
                 opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* 반응형 */
-        @media (max-width: 768px) {
-            .main-banner {
-                padding: 40px 24px;
-            }
-
-            .main-banner h1 {
-                font-size: 1.8em;
-            }
-
-            .main-banner p {
-                font-size: 1em;
-            }
-
-            .section-title {
-                font-size: 1.6em;
-            }
-
-            .exchanges-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .payback-section {
-                padding: 30px 20px;
             }
         }
 
         .hidden {
-            display: none;
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-table {
+                font-size: 0.85em;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 5px;
+            }
+
+            .exchange-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -602,20 +554,37 @@
     <!-- 헤더 -->
     <header class="header">
         <div class="header-content">
-            <img src="logo.svg" alt="CryptoMax Logo" class="logo" onclick="goHome()">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <svg class="logo" onclick="goHome()" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="25" cy="25" r="20" fill="url(#logoGradient)"/>
+                    <text x="55" y="32" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1a1a1a">CryptoPayback</text>
+                </svg>
+            </div>
+            
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            
             <nav class="nav-links" id="navLinks">
-                <a class="nav-link" onclick="showServiceInfo()" data-en="About Service" data-ko="서비스 소개">About Service</a>
-                <a class="nav-link" onclick="showPage('payback')" data-en="Apply for Payback" data-ko="페이백 신청">Apply for Payback</a>
-                <a class="nav-link" href="https://t.me/your_telegram" target="_blank" data-en="Customer Support" data-ko="고객상담센터">Customer Support</a>
+                <a class="nav-link" onclick="showPage('exchanges')" data-en="Exchanges" data-ko="거래소">Exchanges</a>
+                <a class="nav-link" onclick="showServiceInfo()" data-en="About" data-ko="서비스 소개">About</a>
+                <a class="nav-link" onclick="showPage('payback')" data-en="Comparison" data-ko="비교하기">Comparison</a>
+                <a class="nav-link cta" onclick="showPage('payback')" data-en="Get Started" data-ko="시작하기">Get Started</a>
+                
                 <div class="language-selector">
                     <button class="language-btn" onclick="toggleLanguageDropdown()">🌐</button>
-                    <div class="language-dropdown" id="languageDropdown">
+                    <div id="languageDropdown" class="language-dropdown">
                         <div class="language-option selected" onclick="changeLanguage('en')">
-                            🇺🇸 English
+                            <span>🇬🇧</span>
+                            <span>English</span>
                         </div>
                         <div class="language-option" onclick="changeLanguage('ko')">
-                            🇰🇷 한국어
+                            <span>🇰🇷</span>
+                            <span>한국어</span>
                         </div>
                     </div>
                 </div>
@@ -624,242 +593,222 @@
     </header>
 
     <div class="container">
-        <!-- 거래소 페이지 (메인 랜딩) -->
-        <div id="exchangesPage">
-            <!-- 슬라이딩 배너 -->
-            <div class="slider-section">
-                <div class="slider-container">
-                    <div class="slider-slide active" onclick="openBannerLink(0)">
-                        <div class="slider-content">
-                            <h2 data-en="🎉 Up to 50% Payback Event" data-ko="🎉 최대 50% 페이백 이벤트">🎉 Up to 50% Payback Event</h2>
-                            <p data-en="Sign up now and get special benefits!" data-ko="지금 가입하고 특별 혜택을 받으세요!">Sign up now and get special benefits!</p>
-                        </div>
-                    </div>
-                    <div class="slider-slide" onclick="openBannerLink(1)">
-                        <div class="slider-content">
-                            <h2 data-en="💰 New Member Bonus" data-ko="💰 신규 가입 보너스">💰 New Member Bonus</h2>
-                            <p data-en="Additional payback on your first trade" data-ko="첫 거래 시 추가 페이백 제공">Additional payback on your first trade</p>
-                        </div>
-                    </div>
-                    <div class="slider-slide" onclick="openBannerLink(2)">
-                        <div class="slider-content">
-                            <h2 data-en="🚀 VIP Member Special Benefits" data-ko="🚀 VIP 회원 특별 혜택">🚀 VIP Member Special Benefits</h2>
-                            <p data-en="Extra rewards based on trading volume" data-ko="거래량에 따른 추가 리워드">Extra rewards based on trading volume</p>
-                        </div>
+        <!-- 슬라이딩 배너 -->
+        <div class="slider-section">
+            <div class="slider-container">
+                <div class="slider-slide active" onclick="openBannerLink(0)">
+                    <div class="slider-content">
+                        <h2 data-en="Welcome to CryptoPayback" data-ko="CryptoPayback에 오신 것을 환영합니다">Welcome to CryptoPayback</h2>
+                        <p data-en="Get up to 50% payback on your trading fees" data-ko="거래 수수료의 최대 50%를 돌려받으세요">Get up to 50% payback on your trading fees</p>
                     </div>
                 </div>
-                <div class="slider-dots">
-                    <span class="slider-dot active" onclick="goToSlide(0)"></span>
-                    <span class="slider-dot" onclick="goToSlide(1)"></span>
-                    <span class="slider-dot" onclick="goToSlide(2)"></span>
+                <div class="slider-slide" onclick="openBannerLink(1)">
+                    <div class="slider-content">
+                        <h2 data-en="Real-time Settlement" data-ko="실시간 정산">Real-time Settlement</h2>
+                        <p data-en="Automatic payback within 24 hours" data-ko="24시간 이내 자동 페이백">Automatic payback within 24 hours</p>
+                    </div>
+                </div>
+                <div class="slider-slide" onclick="openBannerLink(2)">
+                    <div class="slider-content">
+                        <h2 data-en="Multiple Exchanges Supported" data-ko="다중 거래소 지원">Multiple Exchanges Supported</h2>
+                        <p data-en="Bybit, Bitget, OKX and more" data-ko="Bybit, Bitget, OKX 등">Bybit, Bitget, OKX and more</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="main-banner">
-                <h1 data-en="🚀 Crypto Exchange Referral" data-ko="🚀 크립토 거래소 레퍼럴">🚀 Crypto Exchange Referral</h1>
-                <p data-en="Trade on the best exchanges and get payback" data-ko="최고의 거래소에서 거래하고 페이백 받으세요">Trade on the best exchanges and get payback</p>
-            </div>
-            <h2 class="section-title" data-en="Select Major Exchange" data-ko="주요 거래소 선택">Select Major Exchange</h2>
-            <div class="exchanges-grid">
-                <!-- 거래소 카드는 JavaScript로 동적 생성됩니다 -->
-            </div>
-
-            <!-- 거래소 비교 테이블 -->
-            <div class="comparison-section">
-                <h2 class="section-title" data-en="Exchange Payback Comparison" data-ko="거래소별 페이백 비교">Exchange Payback Comparison</h2>
-                <div class="comparison-table-wrapper">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th data-en="Exchange" data-ko="거래소명">Exchange</th>
-                                <th data-en="Payback Rate" data-ko="페이백율">Payback Rate</th>
-                                <th data-en="Trading Discount" data-ko="거래할인율">Trading Discount</th>
-                                <th data-en="Maker Fee" data-ko="지정가">Maker Fee</th>
-                                <th data-en="Taker Fee" data-ko="시장가">Taker Fee</th>
-                                <th data-en="Avg Payback/User" data-ko="1인당 평균페이백">Avg Payback/User</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- 비교 데이터는 JavaScript로 동적 생성됩니다 -->
-                        </tbody>
-                    </table>
-                </div>
+            <div class="slider-dots">
+                <span class="slider-dot active" onclick="goToSlide(0)"></span>
+                <span class="slider-dot" onclick="goToSlide(1)"></span>
+                <span class="slider-dot" onclick="goToSlide(2)"></span>
             </div>
         </div>
 
-        <!-- 페이백 정보 입력 페이지 -->
+        <!-- 거래소 페이지 -->
+        <div id="exchangesPage">
+            <h1 class="section-title" data-en="Choose Your Exchange" data-ko="거래소를 선택하세요">Choose Your Exchange</h1>
+            
+            <div class="exchange-grid" id="exchangeGrid">
+                <!-- 거래소 카드들이 여기에 동적으로 생성됩니다 -->
+            </div>
+        </div>
+
+        <!-- 페이백 신청 페이지 -->
         <div id="paybackPage" class="hidden">
-            <div class="payback-section">
-                <h2 class="section-title" data-en="Enter Payback Information" data-ko="페이백 정보 입력">Enter Payback Information</h2>
+            <!-- 비교 섹션 -->
+            <div class="comparison-section">
+                <h2 class="section-title" data-en="Exchange Comparison" data-ko="거래소 비교">Exchange Comparison</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th data-en="Exchange" data-ko="거래소">Exchange</th>
+                            <th data-en="Payback Rate" data-ko="페이백률">Payback Rate</th>
+                            <th data-en="Fee Discount" data-ko="수수료 할인">Fee Discount</th>
+                            <th data-en="Maker Fee" data-ko="메이커 수수료">Maker Fee</th>
+                            <th data-en="Taker Fee" data-ko="테이커 수수료">Taker Fee</th>
+                            <th data-en="Avg. Payback" data-ko="평균 페이백">Avg. Payback</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 비교 데이터가 여기에 동적으로 생성됩니다 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 신청 폼 -->
+            <div class="form-section">
+                <h2 class="section-title" data-en="Register for Payback" data-ko="페이백 신청하기">Register for Payback</h2>
                 <form id="paybackForm">
                     <div class="form-group">
-                        <label for="exchange" data-en="Registered Exchange *" data-ko="가입 거래소 *">Registered Exchange *</label>
-                        <select id="exchange" required>
-                            <option value="" data-en="Please select" data-ko="선택해주세요">Please select</option>
-                            <!-- 거래소 옵션은 JavaScript로 동적 생성됩니다 -->
+                        <label class="form-label" data-en="Select Exchange" data-ko="거래소 선택">Select Exchange</label>
+                        <select id="exchange" class="form-select" required>
+                            <option value="" data-en="Choose an exchange" data-ko="거래소를 선택해주세요">Choose an exchange</option>
+                            <!-- 거래소 옵션들이 여기에 동적으로 생성됩니다 -->
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="uid" data-en="UID (User ID) *" data-ko="UID (사용자 ID) *">UID (User ID) *</label>
-                        <input type="text" id="uid" placeholder="Enter your exchange UID" data-placeholder-en="Enter your exchange UID" data-placeholder-ko="거래소 UID를 입력하세요" required>
+                        <label class="form-label" data-en="UID (User ID)" data-ko="UID (사용자 ID)">UID (User ID)</label>
+                        <input type="text" id="uid" class="form-input" required
+                               data-placeholder-en="Enter your exchange UID"
+                               data-placeholder-ko="거래소 UID를 입력하세요"
+                               placeholder="Enter your exchange UID">
                     </div>
 
                     <div class="form-group">
-                        <label for="email" data-en="Email Address *" data-ko="이메일 주소 *">Email Address *</label>
-                        <input type="email" id="email" placeholder="example@email.com" required>
+                        <label class="form-label" data-en="Email Address" data-ko="이메일 주소">Email Address</label>
+                        <input type="email" id="email" class="form-input" required
+                               data-placeholder-en="your@email.com"
+                               data-placeholder-ko="your@email.com"
+                               placeholder="your@email.com">
                     </div>
 
                     <div class="form-group">
-                        <label for="network" data-en="Network *" data-ko="네트워크 *">Network *</label>
-                        <select id="network" required>
-                            <option value="" data-en="Please select" data-ko="선택해주세요">Please select</option>
-                            <option value="ERC20">ERC20</option>
-                            <option value="TRON">TRON</option>
-                            <option value="SOLANA">SOLANA</option>
+                        <label class="form-label" data-en="Network" data-ko="네트워크">Network</label>
+                        <select id="network" class="form-select" required>
+                            <option value="" data-en="Select network" data-ko="네트워크 선택">Select network</option>
+                            <option value="TRC20">TRC20 (TRON)</option>
+                            <option value="ERC20">ERC20 (Ethereum)</option>
+                            <option value="BEP20">BEP20 (BSC)</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="wallet" data-en="Wallet Address for Payback (USDT) *" data-ko="페이백 받을 지갑주소 (USDT) *">Wallet Address for Payback (USDT) *</label>
-                        <input type="text" id="wallet" placeholder="Enter USDT wallet address" data-placeholder-en="Enter USDT wallet address" data-placeholder-ko="USDT 지갑 주소를 입력하세요" required>
+                        <label class="form-label" data-en="USDT Wallet Address" data-ko="USDT 지갑 주소">USDT Wallet Address</label>
+                        <input type="text" id="wallet" class="form-input" required
+                               data-placeholder-en="Enter your USDT wallet address"
+                               data-placeholder-ko="USDT 지갑 주소를 입력하세요"
+                               placeholder="Enter your USDT wallet address">
                     </div>
 
-                    <div style="display: flex; gap: 15px;">
-                        <button type="button" class="submit-btn" style="background: #6b7280;" onclick="showPage('exchanges')" data-en="Go Back" data-ko="돌아가기">Go Back</button>
-                        <button type="submit" class="submit-btn" data-en="Submit" data-ko="제출하기">Submit</button>
-                    </div>
+                    <button type="submit" class="submit-btn" data-en="Submit Application" data-ko="신청하기">Submit Application</button>
                 </form>
-                <div id="successMessage" class="success-message" data-en="✅ Payback information has been successfully received." data-ko="✅ 페이백 정보가 정상적으로 접수되었습니다.">
-                    ✅ Payback information has been successfully received.
-                </div>
             </div>
         </div>
     </div>
 
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-en="About Us" data-ko="회사 소개">About Us</h3>
+                <p data-en="CryptoPayback provides the best referral payback service for cryptocurrency exchanges." data-ko="CryptoPayback은 암호화폐 거래소를 위한 최고의 레퍼럴 페이백 서비스를 제공합니다.">CryptoPayback provides the best referral payback service for cryptocurrency exchanges.</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-en="Contact" data-ko="연락처">Contact</h3>
+                <a href="https://t.me/your_telegram_channel" target="_blank">📱 Telegram</a>
+                <a href="mailto:info@cryptopayback.com">✉️ Email</a>
+            </div>
+            <div class="footer-section">
+                <h3 data-en="Quick Links" data-ko="바로가기">Quick Links</h3>
+                <a href="#" onclick="showPage('exchanges')" data-en="Exchanges" data-ko="거래소">Exchanges</a>
+                <a href="#" onclick="showPage('payback')" data-en="Apply for Payback" data-ko="페이백 신청">Apply for Payback</a>
+                <a href="#" onclick="showServiceInfo()" data-en="FAQ" data-ko="자주 묻는 질문">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 성공 메시지 -->
+    <div id="successMessage" class="success-message">
+        <span data-en="✅ Application submitted successfully!" data-ko="✅ 신청이 성공적으로 제출되었습니다!">✅ Application submitted successfully!</span>
+    </div>
+
     <script>
         // ========================================
-        // 📝 설정 관리 섹션 (Configuration Management)
-        // 이 섹션에서 모든 주요 설정을 관리할 수 있습니다
-        // ========================================
-
-        // 🔗 거래소 레퍼럴 링크 (Exchange Referral Links)
-        const referralLinks = {
-            binance: 'https://www.binance.com/en/register?ref=YOUR_REF_CODE',
-            bybit: 'https://www.bybit.com/register?ref=YOUR_REF_CODE',
-            bitget: 'https://www.bitget.com/expressly?channelCode=YOUR_REF_CODE',
-            okx: 'https://www.okx.com/join/YOUR_REF_CODE',
-            huobi: 'https://www.huobi.com/en-us/v/register/double-invite/?inviter_id=YOUR_REF_CODE',
-            mexc: 'https://www.mexc.com/register?inviteCode=YOUR_REF_CODE'
-        };
-
-        // 📊 거래소 비교 데이터 (Exchange Comparison Data)
-        const exchangeData = {
-            binance: {
-                name: 'Binance',
-                logo: 'logos/binance.svg',
-                description: {
-                    en: "World's largest cryptocurrency exchange",
-                    ko: '세계 최대 암호화폐 거래소'
-                },
-                paybackRate: '45%',      // 페이백율
-                discount: '10%',          // 거래할인율
-                makerFee: '0.018%',      // 지정가 수수료
-                takerFee: '0.036%',      // 시장가 수수료
-                avgPayback: '$156'       // 평균 페이백
-            },
-            bybit: {
-                name: 'Bybit',
-                logo: 'logos/bybit.svg',
-                description: {
-                    en: 'Futures trading specialized platform',
-                    ko: '선물거래 전문 플랫폼'
-                },
-                paybackRate: '40%',
-                discount: '10%',
-                makerFee: '0.020%',
-                takerFee: '0.040%',
-                avgPayback: '$142'
-            },
-            bitget: {
-                name: 'Bitget',
-                logo: 'logos/bitget.svg',
-                description: {
-                    en: 'Leader in copy trading',
-                    ko: '카피트레이딩의 선두주자'
-                },
-                paybackRate: '50%',
-                discount: '15%',
-                makerFee: '0.017%',
-                takerFee: '0.034%',
-                avgPayback: '$168'
-            },
-            okx: {
-                name: 'OKX',
-                logo: 'logos/okx.svg',
-                description: {
-                    en: 'Comprehensive digital asset exchange',
-                    ko: '종합 디지털 자산 거래소'
-                },
-                paybackRate: '40%',
-                discount: '10%',
-                makerFee: '0.020%',
-                takerFee: '0.040%',
-                avgPayback: '$138'
-            },
-            huobi: {
-                name: 'Huobi',
-                logo: 'logos/huobi.svg',
-                description: {
-                    en: 'Global cryptocurrency trading platform',
-                    ko: '글로벌 암호화폐 거래 플랫폼'
-                },
-                paybackRate: '35%',
-                discount: '8%',
-                makerFee: '0.022%',
-                takerFee: '0.044%',
-                avgPayback: '$125'
-            },
-            mexc: {
-                name: 'MEXC',
-                logo: 'logos/mexc.svg',
-                description: {
-                    en: 'Diverse altcoin exchange',
-                    ko: '다양한 알트코인 거래소'
-                },
-                paybackRate: '42%',
-                discount: '12%',
-                makerFee: '0.019%',
-                takerFee: '0.038%',
-                avgPayback: '$148'
-            }
-        };
-
-        // 🎬 배너 링크 (Banner Links)
-        const bannerLinks = [
-            'https://your-event-page.com/event1',
-            'https://your-event-page.com/event2',
-            'https://your-event-page.com/event3'
-        ];
-
-        // ========================================
-        // 📧 기타 설정 (Other Settings)
+        // ⚙️ 설정 (Configuration)
         // ========================================
         
         const CONFIG = {
-            emailRecipient: 'your-email@example.com',  // 페이백 신청 정보를 받을 이메일
-            telegramLink: 'https://t.me/your_telegram', // 텔레그램 링크
-            sliderInterval: 5000  // 슬라이더 자동 전환 시간 (밀리초)
+            emailRecipient: 'info@cryptopayback.com',
+            telegramLink: 'https://t.me/your_telegram_channel',
+            sliderInterval: 5000
+        };
+
+        // 배너 링크 (각 슬라이드를 클릭했을 때 이동할 URL)
+        const bannerLinks = [
+            'https://cryptopayback.com',
+            'https://cryptopayback.com/settlement',
+            'https://cryptopayback.com/exchanges'
+        ];
+
+        // 거래소별 레퍼럴 링크 (실제 레퍼럴 링크로 변경해주세요)
+        const referralLinks = {
+            bybit: 'https://partner.bybit.com/b/YOUR_REFERRAL_CODE',
+            bitget: 'https://partner.bitget.com/bg/YOUR_REFERRAL_CODE',
+            okx: 'https://www.okx.com/join/YOUR_REFERRAL_CODE'
         };
 
         // ========================================
-        // 🔄 페이지 초기화 (Page Initialization)
-        // 위의 설정값을 바탕으로 페이지를 동적으로 생성합니다
+        // 📊 거래소 데이터 (Exchange Data)
+        // ========================================
+
+        const exchangeData = {
+            bybit: {
+                name: 'Bybit',
+                logo: 'https://cdn.worldvectorlogo.com/logos/bybit.svg',
+                paybackRate: '50%',
+                discount: '20%',
+                makerFee: '0.01%',
+                takerFee: '0.06%',
+                avgPayback: '$45/day',
+                description: {
+                    en: 'Leading derivatives exchange with high liquidity',
+                    ko: '높은 유동성을 자랑하는 선도적인 파생상품 거래소'
+                }
+            },
+            bitget: {
+                name: 'Bitget',
+                logo: 'https://www.bitget.com/favicon.ico',
+                paybackRate: '45%',
+                discount: '20%',
+                makerFee: '0.02%',
+                takerFee: '0.06%',
+                avgPayback: '$40/day',
+                description: {
+                    en: 'Fast-growing exchange with copy trading features',
+                    ko: '카피 트레이딩 기능을 갖춘 빠르게 성장하는 거래소'
+                }
+            },
+            okx: {
+                name: 'OKX',
+                logo: 'https://static.okx.com/cdn/assets/imgs/MjAyMQ/OKX_LOGO.png',
+                paybackRate: '40%',
+                discount: '20%',
+                makerFee: '0.02%',
+                takerFee: '0.05%',
+                avgPayback: '$38/day',
+                description: {
+                    en: 'Comprehensive platform with spot, futures, and options',
+                    ko: '현물, 선물, 옵션을 갖춘 종합 플랫폼'
+                }
+            }
+        };
+
+        // ========================================
+        // 🎨 동적 콘텐츠 생성 (Dynamic Content Generation)
         // ========================================
 
         // 거래소 카드 동적 생성
         function initializeExchangeCards() {
-            const grid = document.querySelector('.exchanges-grid');
+            const grid = document.getElementById('exchangeGrid');
             if (!grid) return;
 
             grid.innerHTML = '';
@@ -871,8 +820,22 @@
                 card.onclick = () => openExchange(key);
                 card.innerHTML = `
                     <img src="${exchange.logo}" alt="${exchange.name}" class="exchange-logo">
-                    <h3>${exchange.name}</h3>
-                    <p data-en="${exchange.description.en}" data-ko="${exchange.description.ko}">${exchange.description.en}</p>
+                    <div class="exchange-name">${exchange.name}</div>
+                    <div class="exchange-stats">
+                        <div class="stat-row">
+                            <span class="stat-label" data-en="Payback Rate" data-ko="페이백률">Payback Rate</span>
+                            <span class="stat-value">${exchange.paybackRate}</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label" data-en="Fee Discount" data-ko="수수료 할인">Fee Discount</span>
+                            <span class="stat-value">${exchange.discount}</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label" data-en="Avg. Daily" data-ko="일 평균">Avg. Daily</span>
+                            <span class="stat-value">${exchange.avgPayback}</span>
+                        </div>
+                    </div>
+                    <p class="exchange-description" data-en="${exchange.description.en}" data-ko="${exchange.description.ko}">${exchange.description.en}</p>
                 `;
                 grid.appendChild(card);
             });
