@@ -9,9 +9,10 @@
       gtag('js', new Date());
       gtag('config', 'G-WYX4LGE3CH');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Exchange Referral Payback</title>
+    <title>거래소 수수료 페이백</title>
     <style>
         * {
             margin: 0;
@@ -21,18 +22,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
-            background: #f8f9fa;
-            color: #1a1a1a;
-            min-height: 100vh;
+            background: #fafafa;
+            color: #2d3748;
+            line-height: 1.6;
         }
 
+        /* 헤더 */
         .header {
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .header-content {
@@ -41,333 +40,451 @@
             padding: 0 20px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
         }
 
         .logo {
-            height: 50px;
+            height: 45px;
             width: auto;
-            cursor: pointer;
+            filter: brightness(0) invert(1);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: #374151;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95em;
-            transition: color 0.2s ease;
-            cursor: pointer;
-        }
-
-        .nav-link:hover {
-            color: #4F46E5;
-        }
-
-        .nav-link.cta {
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: transform 0.2s ease;
-        }
-
-        .nav-link.cta:hover {
-            transform: translateY(-2px);
-            color: white;
-        }
-
-        .language-selector {
-            position: relative;
-        }
-
-        .language-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.3em;
-            color: #374151;
-            padding: 5px;
-            transition: color 0.2s ease;
-        }
-
-        .language-btn:hover {
-            color: #4F46E5;
-        }
-
-        .language-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
+        /* 이벤트 배너 섹션 */
+        .event-banner-section {
             background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            min-width: 120px;
-            margin-top: 8px;
-            overflow: hidden;
-        }
-
-        .language-dropdown.active {
-            display: block;
-        }
-
-        .language-option {
-            padding: 12px 16px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .language-option:hover {
-            background: #f9fafb;
-        }
-
-        .language-option.selected {
-            background: #f0f0ff;
-            color: #4F46E5;
-            font-weight: 600;
-        }
-
-        .slider-section {
-            margin-bottom: 50px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .slider-container {
-            position: relative;
-            width: 100%;
-            height: 400px;
-        }
-
-        .slider-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            cursor: pointer;
-        }
-
-        .slider-slide.active {
-            opacity: 1;
-        }
-
-        .slider-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slider-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .slider-dot.active {
-            background: white;
-            width: 30px;
-            border-radius: 6px;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            color: #374151;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-                gap: 15px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .slider-container {
-                height: 250px;
-            }
+            padding: 40px 0;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
+        }
+
+        .event-banner-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border: 3px solid #e2e8f0;
+        }
+
+        .event-banner {
+            width: 100%;
+            height: 350px;
+            display: none;
+        }
+
+        .event-banner.active {
+            display: block;
+        }
+
+        .event-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 2px solid #fff;
+        }
+
+        .banner-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .banner-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .banner-dot.active {
+            background: white;
+            width: 24px;
+            border-radius: 5px;
+        }
+
+        /* 파트너 거래소 섹션 */
+        .exchange-section {
+            padding: 60px 0;
+            background: #fafafa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: #1a202c;
+        }
+
+        .section-title span {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .exchange-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .exchange-card {
             background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exchange-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .exchange-card:hover::before {
+            transform: scaleX(1);
         }
 
         .exchange-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.2);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .exchange-card.coming-soon {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .exchange-logo-container {
+            text-align: center;
+            margin-bottom: 25px;
         }
 
         .exchange-logo {
             width: 80px;
             height: 80px;
-            margin-bottom: 20px;
             object-fit: contain;
         }
 
         .exchange-name {
-            font-size: 1.5em;
+            text-align: center;
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 10px;
-            color: #1a1a1a;
+            margin-bottom: 25px;
+            color: #1a202c;
         }
 
-        .exchange-description {
-            font-size: 0.95em;
-            color: #6b7280;
-            margin-bottom: 20px;
-            line-height: 1.5;
+        .coming-soon-badge {
+            display: inline-block;
+            background: #e2e8f0;
+            color: #718096;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
         }
 
         .exchange-stats {
-            width: 100%;
-            margin-top: auto;
-            padding-top: 20px;
-            border-top: 2px solid #f3f4f6;
+            margin-bottom: 25px;
         }
 
-        .stat-row {
+        .stat-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 0.9em;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f7fafc;
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
         }
 
         .stat-label {
-            color: #6b7280;
+            color: #718096;
+            font-size: 14px;
         }
 
         .stat-value {
-            font-weight: 600;
-            color: #4F46E5;
+            font-weight: 700;
+            color: #667eea;
+            font-size: 15px;
         }
 
-        .section-title {
-            font-size: 2em;
+        .exchange-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-gradient:hover {
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-outline:hover {
+            background: #f7fafc;
+        }
+
+        /* 모달 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 30px;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: #f7fafc;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            color: #718096;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .guide-section {
+            margin-bottom: 30px;
+        }
+
+        .guide-section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .step-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        .warning-box {
+            margin-top: 20px;
+            padding: 16px;
+            background: #fff5f5;
+            border-left: 4px solid #fc8181;
+            border-radius: 8px;
+        }
+
+        .warning-box strong {
+            color: #c53030;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .warning-box p {
+            color: #742a2a;
+            font-size: 14px;
+        }
+
+        /* 고객센터 */
+        .customer-support {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .customer-support h2 {
+            color: white;
+            font-size: 28px;
             font-weight: 700;
             margin-bottom: 30px;
-            text-align: center;
-            color: #1a1a1a;
         }
 
-        .form-section {
+        .support-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .google-form-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .google-form-container iframe {
-            border: none;
-            width: 100%;
-            min-height: 800px;
-        }
-
-        .footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.2em;
-            margin-bottom: 15px;
-            color: #4F46E5;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #d1d5db;
+            color: #667eea;
+            padding: 16px 32px;
+            border-radius: 50px;
             text-decoration: none;
-            line-height: 1.8;
-            display: block;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .footer-section a:hover {
-            color: #4F46E5;
+        .support-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
-        .hidden {
-            display: none !important;
+        /* 푸터 */
+        .footer {
+            background: #1a202c;
+            color: #a0aec0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 14px;
+        }
+
+        /* 반응형 */
+        @media (max-width: 1024px) {
+            .exchange-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -375,296 +492,428 @@
                 grid-template-columns: 1fr;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 26px;
+            }
+
+            .event-banner {
+                height: 200px;
+            }
+
+            .modal-content {
+                margin: 20px;
+            }
+
+            .modal-header,
+            .modal-body {
+                padding: 20px;
+            }
+
+            .modal-close {
+                top: 20px;
+                right: 20px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- 헤더 -->
     <header class="header">
         <div class="header-content">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <img src="logo.png" alt="CryptoPayback" class="logo" onclick="goHome()">Referral Payback
-            </div>
-            
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-            
-            <nav class="nav-links" id="navLinks">
-                <a class="nav-link" onclick="showPage('exchanges')" data-ko="거래소" data-en="Exchanges">거래소</a>
-                <a class="nav-link" onclick="showServiceInfo()" data-ko="서비스 소개" data-en="About">서비스 소개</a>
-                <a class="nav-link cta" onclick="showPage('payback')" data-ko="페이백 신청하기" data-en="Register Payback">페이백 신청하기</a>
-                
-                <div class="language-selector">
-                    <button class="language-btn" onclick="toggleLanguageDropdown()">🌐</button>
-                    <div id="languageDropdown" class="language-dropdown">
-                        <div class="language-option selected" onclick="changeLanguage('ko')">
-                            <span>🇰🇷</span>
-                            <span>한국어</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('en')">
-                            <span>🇬🇧</span>
-                            <span>English</span>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <img src="logo.png" alt="Logo" class="logo">
         </div>
     </header>
 
-    <div class="container">
-        <div class="slider-section">
-            <div class="slider-container">
-                <div class="slider-slide active" onclick="openBannerLink(0)">
-                    <img src="banners/banner1.jpg" alt="Banner 1">
+    <!-- 이벤트 배너 -->
+    <section class="event-banner-section">
+        <div class="container">
+            <div class="event-banner-container">
+                <div class="event-banner active">
+                    <img src="banners/banner1.jpg" alt="Event Banner 1">
                 </div>
-                <div class="slider-slide" onclick="openBannerLink(1)">
-                    <img src="banners/banner2.jpg" alt="Banner 2">
+                <div class="event-banner">
+                    <img src="banners/banner2.jpg" alt="Event Banner 2">
                 </div>
-            </div>
-            <div class="slider-dots">
-                <span class="slider-dot active" onclick="goToSlide(0)"></span>
-                <span class="slider-dot" onclick="goToSlide(1)"></span>
+                <div class="banner-dots">
+                    <span class="banner-dot active" onclick="goToBanner(0)"></span>
+                    <span class="banner-dot" onclick="goToBanner(1)"></span>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div id="exchangesPage">
-            <h1 class="section-title" data-ko="거래소를 선택하세요" data-en="Choose Your Exchange">거래소를 선택하세요</h1>
-            
-            <div class="exchange-grid" id="exchangeGrid">
+    <!-- 파트너 거래소 -->
+    <section class="exchange-section">
+        <h2 class="section-title"><span>파트너 거래소</span></h2>
+        <div class="exchange-grid">
+            <!-- Bitget -->
+            <div class="exchange-card">
+                <div class="exchange-logo-container">
+                    <img src="logos/bitget-logo.svg" alt="Bitget" class="exchange-logo">
+                </div>
+                <h3 class="exchange-name">Bitget</h3>
+                <div class="exchange-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">페이백률</span>
+                        <span class="stat-value">45%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">수수료 할인</span>
+                        <span class="stat-value">20%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">메이커 수수료</span>
+                        <span class="stat-value">0.02%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">테이커 수수료</span>
+                        <span class="stat-value">0.06%</span>
+                    </div>
+                </div>
+                <div class="exchange-buttons">
+                    <a href="https://partner.bitget.com/bg/FTV21R" target="_blank" class="btn btn-gradient">
+                        가입하고 수수료 페이백 받기
+                    </a>
+                    <button class="btn btn-outline" onclick="openModal('bitget')">
+                        추천인 변경방법
+                    </button>
+                </div>
+            </div>
+
+            <!-- OKX -->
+            <div class="exchange-card coming-soon">
+                <div class="exchange-logo-container">
+                    <img src="logos/okx-logo.svg" alt="OKX" class="exchange-logo">
+                </div>
+                <h3 class="exchange-name">
+                    OKX
+                    <span class="coming-soon-badge">준비중</span>
+                </h3>
+                <div class="exchange-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">페이백률</span>
+                        <span class="stat-value">Coming Soon</span>
+                    </div>
+                </div>
+                <div class="exchange-buttons">
+                    <button class="btn btn-gradient" disabled style="opacity: 0.5; cursor: not-allowed;">
+                        준비중
+                    </button>
+                </div>
+            </div>
+
+            <!-- BingX -->
+            <div class="exchange-card coming-soon">
+                <div class="exchange-logo-container">
+                    <img src="logos/bingx-logo.svg" alt="BingX" class="exchange-logo">
+                </div>
+                <h3 class="exchange-name">
+                    BingX
+                    <span class="coming-soon-badge">준비중</span>
+                </h3>
+                <div class="exchange-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">페이백률</span>
+                        <span class="stat-value">Coming Soon</span>
+                    </div>
+                </div>
+                <div class="exchange-buttons">
+                    <button class="btn btn-gradient" disabled style="opacity: 0.5; cursor: not-allowed;">
+                        준비중
+                    </button>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div id="paybackPage" class="hidden">
-            <div class="form-section">
-                <h2 class="section-title" data-ko="페이백 등록하기" data-en="Register Payback">페이백페 등록하기</h2>
-                <p style="text-align: center; color: #6b7280; margin-bottom: 30px;" data-ko="Bitget 거래소 페이백을 받으시려면 아래 정보를 입력해주세요." data-en="Please fill in the information below to receive Bitget payback.">Bitget 거래소 페이백을 받으시려면 아래 정보를 입력해주세요.</p>
-                
-                <!-- 구글 폼 임베드 -->
-                <div class="google-form-container">
-                    <!-- 
-                    구글 폼을 만든 후 아래 src 부분을 실제 구글 폼 URL로 교체해주세요 
-                    예시: https://docs.google.com/forms/d/e/1FAIpQLSe.../viewform?embedded=true
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeKhqVRgJb5HwAACNejlqvmvkrWEhdrFytiQhDtoJgbbIzzAw/viewform?embedded=true" width="640" height="737" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe>
-                    -->
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeKhqVRgJb5HwAACNejlqvmvkrWEhdrFytiQhDtoJgbbIzzAw/viewform?embedded=true" 
-                            width="100%" 
-                            height="800" 
-                            frameborder="0" 
-                            marginheight="0" 
-                            marginwidth="0">로딩중...</iframe>
+    <!-- 고객센터 -->
+    <section class="customer-support">
+        <div class="container">
+            <h2>고객센터</h2>
+            <a href="https://t.me/your_telegram_channel" target="_blank" class="support-link">
+                <span style="font-size: 24px;">📱</span>
+                <span>텔레그램 문의하기</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 거래소 수수료 페이백. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bitget 추천인 변경 모달 -->
+    <div id="bitgetModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <img src="logos/bitget-logo.svg" alt="Bitget" style="width: 28px; height: 28px;">
+                    Bitget KYC 해제 또는 계정 삭제 및 재인증 안내
+                </h3>
+                <button class="modal-close" onclick="closeModal('bitget')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- 레퍼럴 코드 안내 박스 -->
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 12px; margin-bottom: 30px; color: white;">
+                    <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">📌 레퍼럴 코드 안내</h4>
+                    <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px; margin-bottom: 10px;">
+                        <p style="font-size: 14px; margin-bottom: 5px;">레퍼럴 코드</p>
+                        <p style="font-size: 24px; font-weight: 700; letter-spacing: 2px;">Kasi</p>
+                    </div>
+                    <div style="font-size: 14px; line-height: 1.8;">
+                        <p>✅ 평생 수수료 50% 할인</p>
+                        <p>✅ 추가 보너스 쿠폰 지급</p>
+                    </div>
+                </div>
+
+                <div style="background: #f7fafc; padding: 20px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #667eea;">
+                    <p style="color: #2d3748; font-size: 14px; line-height: 1.7;">
+                        기존 계정의 KYC 인증을 해제하거나, 기존 계정을 삭제한 후 새 계정을 생성하여 KYC 인증을 진행할 수 있습니다. 편한 방법을 선택하여 진행하시면 됩니다.
+                    </p>
+                </div>
+
+                <!-- 1. KYC 해제 -->
+                <div class="guide-section">
+                    <div class="guide-section-title">
+                        1️⃣ 기존 계정 KYC 해제 신청 방법
+                    </div>
+                    
+                    <div style="background: #fff; padding: 20px; border-radius: 12px; border: 2px solid #e2e8f0; margin-bottom: 20px;">
+                        <h4 style="font-size: 16px; font-weight: 600; color: #2d3748; margin-bottom: 12px;">
+                            📧 이메일 발송: <a href="mailto:support@bitget.com" style="color: #667eea;">support@bitget.com</a>
+                        </h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <p style="font-weight: 600; color: #2d3748; margin-bottom: 10px;">📝 이메일에 포함해야 할 내용</p>
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li style="padding: 8px 0; padding-left: 20px; position: relative;">
+                                    <span style="position: absolute; left: 0;">•</span>
+                                    기존 계정의 UID
+                                </li>
+                                <li style="padding: 8px 0; padding-left: 20px; position: relative;">
+                                    <span style="position: absolute; left: 0;">•</span>
+                                    계정에 등록된 이메일 주소
+                                </li>
+                                <li style="padding: 8px 0; padding-left: 20px; position: relative;">
+                                    <span style="position: absolute; left: 0;">•</span>
+                                    계정에 등록된 휴대폰 번호
+                                </li>
+                                <li style="padding: 8px 0; padding-left: 20px; position: relative;">
+                                    <span style="position: absolute; left: 0;">•</span>
+                                    KYC 해제 요청 내용
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <p style="font-weight: 600; color: #2d3748; margin-bottom: 10px;">📎 첨부해야 할 자료</p>
+                            <div style="background: #f7fafc; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                                <p style="font-weight: 600; color: #667eea; margin-bottom: 8px;">① 신분증 사진</p>
+                                <p style="font-size: 14px; color: #718096;">주민등록증, 운전면허증, 여권 중 하나</p>
+                            </div>
+                            <div style="background: #f7fafc; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                                <p style="font-weight: 600; color: #667eea; margin-bottom: 8px;">② 본인 확인 사진</p>
+                                <p style="font-size: 14px; color: #718096;">
+                                    • 한 손에 신분증<br>
+                                    • 다른 손에 "KYC 해제 요청"이라고 직접 쓴 종이<br>
+                                    • 얼굴, 신분증, 종이가 모두 선명하게 보이도록 촬영
+                                </p>
+                            </div>
+                            <div style="background: #f7fafc; padding: 15px; border-radius: 8px;">
+                                <p style="font-weight: 600; color: #667eea; margin-bottom: 8px;">③ 계정 정보 캡처</p>
+                                <p style="font-size: 14px; color: #718096;">
+                                    • 현재 보유 코인 수량 화면 캡처<br>
+                                    • 전체 자산 화면 캡처
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: #e6fffa; padding: 15px; border-radius: 8px; border-left: 4px solid #38b2ac;">
+                        <p style="font-weight: 600; color: #234e52; margin-bottom: 5px;">⏱️ 처리 기간</p>
+                        <p style="color: #234e52; font-size: 14px;">이메일 발송 후 약 3일 이내 KYC 해제 완료</p>
+                    </div>
+                </div>
+
+                <!-- 2. 계정 삭제 -->
+                <div class="guide-section">
+                    <div class="guide-section-title">
+                        2️⃣ 기존 계정 삭제 방법 (대안 방법)
+                    </div>
+                    
+                    <div style="background: #fff; padding: 20px; border-radius: 12px; border: 2px solid #e2e8f0; margin-bottom: 15px;">
+                        <p style="color: #2d3748; line-height: 1.7;">
+                            KYC 해제 대신 기존 계정을 완전히 삭제하는 방법도 가능합니다.
+                        </p>
+                        <ul style="margin-top: 12px; padding-left: 20px; color: #718096;">
+                            <li style="margin-bottom: 8px;">동일하게 <strong style="color: #667eea;">support@bitget.com</strong> 으로 계정 삭제 요청 이메일 발송</li>
+                            <li style="margin-bottom: 8px;">위와 동일한 본인 확인 자료 첨부 필요</li>
+                            <li>계정 삭제 완료 후 새 계정 생성 및 KYC 인증 진행 가능</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ 필수 확인</strong>
+                        <p>계정 삭제 전 반드시 자산을 모두 출금하세요.</p>
+                    </div>
+                </div>
+
+                <!-- 3. 완료 확인 -->
+                <div class="guide-section">
+                    <div class="guide-section-title">
+                        3️⃣ KYC 해제 또는 삭제 완료 확인 방법
+                    </div>
+                    
+                    <div class="guide-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>기존 계정 로그인</h4>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>우측 상단 사람 모양 아이콘 클릭</h4>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>인증 상태 확인</h4>
+                                <p>
+                                    • <strong style="color: #38b2ac;">Unverified</strong> → KYC 해제 완료<br>
+                                    • <strong style="color: #e53e3e;">Verified</strong> → 아직 해제 진행 중
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: #f7fafc; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <p style="color: #718096; font-size: 14px;">
+                            ※ 계정 삭제의 경우 로그인 자체가 불가능해집니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. 새 계정 생성 주의사항 -->
+                <div class="guide-section">
+                    <div class="guide-section-title">
+                        4️⃣ 새 계정 생성 시 주의사항
+                    </div>
+                    
+                    <div style="background: #fff; padding: 20px; border-radius: 12px; border: 2px solid #e2e8f0;">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong style="color: #2d3748;">📧 이메일 주소</strong>
+                                <p style="color: #718096; font-size: 14px; margin-top: 5px;">기존 계정과 다른 이메일 주소 사용 필수</p>
+                            </li>
+                            <li style="padding: 12px 0;">
+                                <strong style="color: #2d3748;">📱 휴대폰 번호</strong>
+                                <p style="color: #718096; font-size: 14px; margin-top: 5px;">본인 명의 기준 1개 계정만 사용 가능</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5. 새 계정 KYC 인증 -->
+                <div class="guide-section">
+                    <div class="guide-section-title">
+                        5️⃣ 새 계정 KYC 인증 방법
+                    </div>
+                    
+                    <div style="background: #fff; padding: 20px; border-radius: 12px; border: 2px solid #e2e8f0; margin-bottom: 15px;">
+                        <p style="color: #2d3748; margin-bottom: 15px;">다음 신분증 중 하나를 선택하여 인증 진행:</p>
+                        <div style="display: grid; gap: 10px;">
+                            <div style="background: #f7fafc; padding: 12px; border-radius: 8px; text-align: center;">
+                                <span style="color: #667eea; font-weight: 600;">📄 주민등록증</span>
+                            </div>
+                            <div style="background: #f7fafc; padding: 12px; border-radius: 8px; text-align: center;">
+                                <span style="color: #667eea; font-weight: 600;">🚗 운전면허증</span>
+                            </div>
+                            <div style="background: #f7fafc; padding: 12px; border-radius: 8px; text-align: center;">
+                                <span style="color: #667eea; font-weight: 600;">✈️ 여권</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: #fef5e7; padding: 15px; border-radius: 8px; border-left: 4px solid #f39c12;">
+                        <p style="color: #7d6608; font-size: 14px;">
+                            ⚠️ 한 번 사용한 신분증 종류는 다른 계정에서 재사용할 수 없습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 가입 링크 버튼 -->
+                <div style="margin-top: 30px; text-align: center;">
+                    <a href="https://partner.bitget.com/bg/FTV21R" target="_blank" 
+                       style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);">
+                        🚀 Bitget 가입하러 가기
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 data-ko="회사 소개" data-en="About Us">회사 소개</h3>
-                <p data-ko="CryptoPayback은 업계 최고 수준의 페이백 서비스를 제공합니다." data-en="CCryptoPayback provides industry-leading payback services.">CryptoPayback은 업계 최고 수준의 페이백 서비스를 제공합니다.</p>
-            </div>
-            <div class="footer-section">
-                <h3 data-ko="연락처" data-en="Contact">연락처</h3>
-                <a href="https://t.me/your_telegram_channel" target="_blank">📱 Telegram</a>
-                <a href="mailto:info@cryptopayback.com">✉️ Email</a>
-            </div>
-            <div class="footer-section">
-                <h3 data-ko="바로가기" data-en="Quick Links">바로가기</h3>
-                <a href="#" onclick="showPage('exchanges')" data-ko="거래소" data-en="Exchanges">거래소</a>
-                <a href="#" onclick="showPage('payback')" data-ko="페이백 등록" data-en="Register Payback">페이백 등록</a>
-                <a href="#" onclick="showServiceInfo()" data-ko="자주 묻는 질문" data-en="FAQ">자주 묻는 질문</a>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        const CONFIG = {
-            telegramLink: 'https://t.me/your_telegram_channel',
-            sliderInterval: 5000
-        };
+        // 배너 슬라이드
+        let currentBannerIndex = 0;
+        const banners = document.querySelectorAll('.event-banner');
+        const bannerDots = document.querySelectorAll('.banner-dot');
 
-        const bannerLinks = [
-            'https://partner.bitget.com/bg/FTV21R',
-            'https://partner.bitget.com/bg/FTV21R'
-        ];
-
-        const referralLinks = {
-            bitget: 'https://partner.bitget.com/bg/FTV21R'
-        };
-
-        const exchangeData = {
-            bitget: {
-                name: 'Bitget',
-                logo: 'logos/bitget-logo.svg',
-                paybackRate: '30%',
-                discount: '50%',
-                makerFee: '0.02%',
-                takerFee: '0.06%',
-                avgPayback: '$40/day',
-                description: {
-                    ko: '카피트레이딩으로 유명한 비트겟은 세계 3대 거래소 중 하나입니다.',
-                    en: 'Bitget, famous for copy trading, is one of the top three global'
-                }
-            }
-        };
-
-        function initializeExchangeCards() {
-            const grid = document.getElementById('exchangeGrid');
-            if (!grid) return;
-
-            grid.innerHTML = '';
-            
-            Object.keys(exchangeData).forEach(key => {
-                const exchange = exchangeData[key];
-                const card = document.createElement('div');
-                card.className = 'exchange-card';
-                card.onclick = () => openExchange(key);
-                card.innerHTML = `
-                    <img src="${exchange.logo}" alt="${exchange.name}" class="exchange-logo">
-                    <div class="exchange-name">${exchange.name}</div>
-                    <div class="exchange-stats">
-                        <div class="stat-row">
-                            <span class="stat-label" data-ko="페이백률" data-en="Payback Rate">페이백률</span>
-                            <span class="stat-value">${exchange.paybackRate}</span>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-label" data-ko="수수료 할인" data-en="Fee Discount">수수료 할인</span>
-                            <span class="stat-value">${exchange.discount}</span>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-label" data-ko="일 평균" data-en="Avg. Daily">일 평균</span>
-                            <span class="stat-value">${exchange.avgPayback}</span>
-                        </div>
-                    </div>
-                    <p class="exchange-description" data-ko="${exchange.description.ko}" data-en="${exchange.description.en}">${exchange.description.ko}</p>
-                `;
-                grid.appendChild(card);
+        function showBanner(index) {
+            banners.forEach((banner, i) => {
+                banner.classList.toggle('active', i === index);
             });
+            bannerDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            currentBannerIndex = index;
         }
 
-        function initializeTelegramLink() {
-            const telegramLink = document.querySelector('a[href*="t.me"]');
-            if (telegramLink) {
-                telegramLink.href = CONFIG.telegramLink;
-            }
+        function nextBanner() {
+            currentBannerIndex = (currentBannerIndex + 1) % banners.length;
+            showBanner(currentBannerIndex);
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeExchangeCards();
-            initializeTelegramLink();
-            changeLanguage('ko');
-        });
+        function goToBanner(index) {
+            showBanner(index);
+        }
 
-        let currentLanguage = 'ko';
+        // 자동 슬라이드
+        setInterval(nextBanner, 5000);
 
-        function changeLanguage(lang) {
-            currentLanguage = lang;
-            document.documentElement.lang = lang;
-            
-            document.querySelectorAll('[data-ko][data-en]').forEach(element => {
-                if (element.hasAttribute('data-placeholder-ko') && element.hasAttribute('data-placeholder-en')) {
-                    element.placeholder = element.getAttribute(`data-placeholder-${lang}`);
-                } else {
-                    element.textContent = element.getAttribute(`data-${lang}`);
+        // 모달
+        function openModal(exchange) {
+            document.getElementById(exchange + 'Modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(exchange) {
+            document.getElementById(exchange + 'Modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // 모달 외부 클릭시 닫기
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal(this.id.replace('Modal', ''));
                 }
             });
-            
-            document.querySelectorAll('option[data-ko][data-en]').forEach(option => {
-                option.textContent = option.getAttribute(`data-${lang}`);
-            });
-            
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            
-            const selectedOption = lang === 'ko' 
-                ? document.querySelector('.language-option:nth-child(1)')
-                : document.querySelector('.language-option:nth-child(2)');
-            if (selectedOption) {
-                selectedOption.classList.add('selected');
-            }
-            
-            document.getElementById('languageDropdown').classList.remove('active');
-            localStorage.setItem('preferredLanguage', lang);
-        }
-
-        function toggleLanguageDropdown() {
-            document.getElementById('languageDropdown').classList.toggle('active');
-        }
-
-        document.addEventListener('click', function(event) {
-            const languageSelector = document.querySelector('.language-selector');
-            const dropdown = document.getElementById('languageDropdown');
-            
-            if (languageSelector && !languageSelector.contains(event.target)) {
-                dropdown.classList.remove('active');
-            }
         });
 
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slider-slide');
-        const dots = document.querySelectorAll('.slider-dot');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                dots[i].classList.remove('active');
-            });
-            
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentSlide = index;
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function goToSlide(index) {
-            showSlide(index);
-        }
-
-        function openBannerLink(index) {
-            window.open(bannerLinks[index], '_blank');
-        }
-
-        setInterval(nextSlide, CONFIG.sliderInterval);
-
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        function goHome() {
-            showPage('exchanges');
-        }
-
-        function showServiceInfo() {
-            const messages = {
-                ko: '서비스 소개 페이지입니다.\n\n최고의 거래소 페이백 서비스를 제공합니다.\n- 최대 50% 페이백\n- 신속한 정산\n- 24/7 고객지원',
-                en: 'About Our Service\n\nWe provide the best exchange payback service.\n- Up to 50% payback\n- Fast settlement\n- 24/7 customer support'
-            };
-            alert(messages[currentLanguage]);
-        }
-
-        function showPage(page) {
-            document.getElementById('exchangesPage').classList.add('hidden');
-            document.getElementById('paybackPage').classList.add('hidden');
-
-            if (page === 'exchanges') {
-                document.getElementById('exchangesPage').classList.remove('hidden');
-            } else if (page === 'payback') {
-                document.getElementById('paybackPage').classList.remove('hidden');
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
             }
-
-            document.getElementById('navLinks').classList.remove('active');
-        }
-
-        function openExchange(exchange) {
-            window.open(referralLinks[exchange], '_blank');
-        }
+        });
     </script>
 </body>
 </html>
