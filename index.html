@@ -44,9 +44,10 @@
         }
 
         .logo {
-            height: 45px;
+            height: 50px;
             width: auto;
-            filter: brightness(0) invert(1);
+            max-width: 200px;
+            object-fit: contain;
         }
 
         .header-nav {
@@ -541,7 +542,8 @@
             }
 
             .logo {
-                height: 35px;
+                height: 40px;
+                max-width: 150px;
             }
         }
     </style>
@@ -740,7 +742,7 @@
                     
                     <div style="background: #fff; padding: 20px; border-radius: 12px; border: 2px solid #e2e8f0; margin-bottom: 20px;">
                         <h4 style="font-size: 16px; font-weight: 600; color: #2d3748; margin-bottom: 12px;">
-                            📧 이메일 발송: <a href="mailto:support@bitget.com" style="color: #667eea;">support@bitget.com</a>
+                            📧 이메일 발송: <a href="/cdn-cgi/l/email-protection#d5a6a0a5a5baa7a195b7bca1b2b0a1fbb6bab8" style="color: #667eea;"><span class="__cf_email__" data-cfemail="097a7c7979667b7d496b607d6e6c7d276a6664">[email&#160;protected]</span></a>
                         </h4>
                         
                         <div style="margin-bottom: 20px;">
@@ -806,7 +808,7 @@
                             KYC 해제 대신 기존 계정을 완전히 삭제하는 방법도 가능합니다.
                         </p>
                         <ul style="margin-top: 12px; padding-left: 20px; color: #718096;">
-                            <li style="margin-bottom: 8px;">동일하게 <strong style="color: #667eea;">support@bitget.com</strong> 으로 계정 삭제 요청 이메일 발송</li>
+                            <li style="margin-bottom: 8px;">동일하게 <strong style="color: #667eea;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a7d4d2d7d7c8d5d3e7c5ced3c0c2d389c4c8ca">[email&#160;protected]</a></strong> 으로 계정 삭제 요청 이메일 발송</li>
                             <li style="margin-bottom: 8px;">위와 동일한 본인 확인 자료 첨부 필요</li>
                             <li>계정 삭제 완료 후 새 계정 생성 및 KYC 인증 진행 가능</li>
                         </ul>
@@ -915,7 +917,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // 배너 슬라이드
         let currentBannerIndex = 0;
         const banners = document.querySelectorAll('.event-banner');
@@ -964,14 +966,4 @@
         });
 
         // ESC 키로 모달 닫기
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal.active').forEach(modal => {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+  
