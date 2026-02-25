@@ -545,6 +545,10 @@
                 height: 40px;
                 max-width: 150px;
             }
+
+            .header-content span {
+                font-size: 16px !important;
+            }
         }
     </style>
 </head>
@@ -552,7 +556,10 @@
     <!-- 헤더 -->
     <header class="header">
         <div class="header-content">
-            <img src="logo.png" alt="Logo" class="logo">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="logo.png" alt="Logo" class="logo">
+                <span style="color: white; font-size: 20px; font-weight: 700; letter-spacing: -0.5px;">Crypto Payback</span>
+            </div>
             <nav class="header-nav">
                 <a href="index.html">파트너거래소</a>
                 <a href="https://t.me/your_telegram_channel" target="_blank">고객센터</a>
@@ -700,7 +707,7 @@
     <!-- 푸터 -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 거래소 수수료 페이백. All rights reserved.</p>
+            <p>&copy; 2024 Crypto Payback. All rights reserved.</p>
         </div>
     </footer>
 
