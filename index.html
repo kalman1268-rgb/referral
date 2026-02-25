@@ -40,13 +40,31 @@
             padding: 0 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
         }
 
         .logo {
             height: 45px;
             width: auto;
             filter: brightness(0) invert(1);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+
+        .header-nav a:hover {
+            opacity: 0.8;
         }
 
         /* 이벤트 배너 섹션 */
@@ -513,6 +531,18 @@
                 top: 20px;
                 right: 20px;
             }
+
+            .header-nav {
+                gap: 15px;
+            }
+
+            .header-nav a {
+                font-size: 14px;
+            }
+
+            .logo {
+                height: 35px;
+            }
         }
     </style>
 </head>
@@ -521,6 +551,10 @@
     <header class="header">
         <div class="header-content">
             <img src="logo.png" alt="Logo" class="logo">
+            <nav class="header-nav">
+                <a href="index.html">파트너거래소</a>
+                <a href="https://t.me/your_telegram_channel" target="_blank">고객센터</a>
+            </nav>
         </div>
     </header>
 
@@ -594,6 +628,18 @@
                         <span class="stat-label">페이백률</span>
                         <span class="stat-value">Coming Soon</span>
                     </div>
+                    <div class="stat-item">
+                        <span class="stat-label">수수료 할인</span>
+                        <span class="stat-value">Coming Soon</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">메이커 수수료</span>
+                        <span class="stat-value">Coming Soon</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">테이커 수수료</span>
+                        <span class="stat-value">Coming Soon</span>
+                    </div>
                 </div>
                 <div class="exchange-buttons">
                     <button class="btn btn-gradient" disabled style="opacity: 0.5; cursor: not-allowed;">
@@ -614,6 +660,18 @@
                 <div class="exchange-stats">
                     <div class="stat-item">
                         <span class="stat-label">페이백률</span>
+                        <span class="stat-value">Coming Soon</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">수수료 할인</span>
+                        <span class="stat-value">Coming Soon</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">메이커 수수료</span>
+                        <span class="stat-value">Coming Soon</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">테이커 수수료</span>
                         <span class="stat-value">Coming Soon</span>
                     </div>
                 </div>
