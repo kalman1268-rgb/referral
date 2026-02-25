@@ -1,0 +1,19 @@
+# robots.txt for merakrt.com
+User-agent: *
+Allow: /
+
+# Sitemap 위치
+Sitemap: https://merakrt.com/sitemap.xml
+
+# 크롤링 최적화
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+# 크롤링 제외
+Disallow: /test-modal.html
