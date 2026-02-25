@@ -617,7 +617,7 @@
                     <a href="https://partner.bitget.com/bg/Kasi9944" target="_blank" class="btn btn-gradient">
                         가입하고 수수료 페이백 받기
                     </a>
-                    <button class="btn btn-outline" onclick="openModal('bitget')">
+                    <button class="btn btn-outline" onclick="event.stopPropagation(); openModal('bitget');">
                         추천인 변경방법
                     </button>
                 </div>
@@ -954,13 +954,23 @@
 
         // 모달
         function openModal(exchange) {
-            document.getElementById(exchange + 'Modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            console.log('Opening modal for:', exchange);
+            const modalElement = document.getElementById(exchange + 'Modal');
+            console.log('Modal element:', modalElement);
+            if (modalElement) {
+                modalElement.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                console.error('Modal not found:', exchange + 'Modal');
+            }
         }
 
         function closeModal(exchange) {
-            document.getElementById(exchange + 'Modal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            const modalElement = document.getElementById(exchange + 'Modal');
+            if (modalElement) {
+                modalElement.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         }
 
         // 모달 외부 클릭시 닫기
